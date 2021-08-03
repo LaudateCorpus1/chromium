@@ -91,7 +91,7 @@ EXTERN_C const IID IID_IRdpDesktopSessionEventHandler;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("b59b96da-83cb-40ee-9b91-c377400fc3e3")
+    MIDL_INTERFACE("2a3ca15f-e395-43f8-8ee6-eb93d7edafae")
     IRdpDesktopSessionEventHandler : public IUnknown
     {
     public:
@@ -177,7 +177,7 @@ EXTERN_C const IID IID_IRdpDesktopSession;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("6a7699f0-ee43-43e7-aa30-a6738f9bd470")
+    MIDL_INTERFACE("632a64d6-fc05-4505-86d2-387296a5f6f9")
     IRdpDesktopSession : public IUnknown
     {
     public:

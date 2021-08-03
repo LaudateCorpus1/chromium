@@ -6,8 +6,8 @@
        taken when adding Win64 components to ensure they are not installed on
        32-bit Windows. -->
 
-  <?define EventSourceName = "chromoting" ?>
-  <?define ServiceName = "chromoting" ?>
+  <?define EventSourceName = "unity_chromoting" ?>
+  <?define ServiceName = "unity_chromoting" ?>
 
   <!-- TODO(alexeypa): There strings should be localized,
        see http://crbug.com/121785 -->
@@ -15,7 +15,7 @@
     <?define ChromotingHost = "Chrome Remote Desktop Host" ?>
     <?define Manufacturer = "Google LLC" ?>
   <?else?>
-    <?define ChromotingHost = "Chromoting Host" ?>
+    <?define ChromotingHost = "Unity Chromoting Host" ?>
     <?define Manufacturer = "The Chromium Authors" ?>
   <?endif?>
 
@@ -28,26 +28,26 @@
   <?if $(var.OfficialBuild) != 0 ?>
     <?define ChromotingKeyPath = "Google\Chrome Remote Desktop" ?>
   <?else?>
-    <?define ChromotingKeyPath = "Chromoting" ?>
+    <?define ChromotingKeyPath = "UnityChromoting" ?>
   <?endif?>
 
   <?define FirewallName = "$(var.ChromotingHost)" ?>
 
   <?define OmahaAppid = "{b210701e-ffc4-49e3-932b-370728c72662}" ?>
-  <?define UpgradeCode = "2b21f767-e157-4fa6-963c-55834c1433a6" ?>
+  <?define UpgradeCode = "f7919aea-7941-4933-a5ae-c941b8504701" ?>
 
   <?define CoreBinary = "remoting_core.dll" ?>
   <?define HostBinary = "remoting_host.exe" ?>
   <?define RemoteSecurityKeyBinary = "remote_security_key.exe" ?>
 
-  <?define ChromotingTypelib = "{b6396c45-b0cc-456b-9f49-f12964ee6df4}" ?>
+  <?define ChromotingTypelib = "{66c4b204-9a53-47eb-a85d-e47f66c60abf}" ?>
 
   <!-- AppIDs used by the COM components. -->
-  <?define RdpAppid = "{52e6fd1a-f16e-49c0-aacb-5436a915448b}" ?>
+  <?define RdpAppid = "{0b1c791c-0cba-41b4-9c43-95dc4a9d37ea}" ?>
 
-  <?define IRdpDesktopSessionId = "{6a7699f0-ee43-43e7-aa30-a6738f9bd470}" ?>
+  <?define IRdpDesktopSessionId = "{632a64d6-fc05-4505-86d2-387296a5f6f9}" ?>
   <?define IRdpDesktopSessionEventHandlerId =
-      "{b59b96da-83cb-40ee-9b91-c377400fc3e3}" ?>
+      "{2a3ca15f-e395-43f8-8ee6-eb93d7edafae}" ?>
 
   <!--
     The long hex value(s) below are security descriptors generated from SDDL
@@ -131,7 +131,7 @@
             </Directory>
           </Directory>
         <?else?>
-          <Directory Id="chromoting" Name="Chromoting">
+          <Directory Id="chromoting" Name="UnityChromoting">
             <Directory Id="binaries" Name="$(var.Version)"/>
           </Directory>
         <?endif?>
@@ -142,7 +142,7 @@
             <Directory Id="config_files" Name="Chrome Remote Desktop"/>
           </Directory>
         <?else?>
-          <Directory Id="config_files" Name="Chromoting"/>
+          <Directory Id="config_files" Name="UnityChromoting"/>
         <?endif?>
       </Directory>
     </Directory>

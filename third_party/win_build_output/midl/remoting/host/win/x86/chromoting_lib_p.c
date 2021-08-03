@@ -357,17 +357,17 @@ static const chromoting_lib_MIDL_TYPE_FORMAT_STRING chromoting_lib__MIDL_TypeFor
 /* 38 */	
 			0x2f,		/* FC_IP */
 			0x5a,		/* FC_CONSTANT_IID */
-/* 40 */	NdrFcLong( 0xb59b96da ),	/* -1248094502 */
-/* 44 */	NdrFcShort( 0x83cb ),	/* -31797 */
-/* 46 */	NdrFcShort( 0x40ee ),	/* 16622 */
-/* 48 */	0x9b,		/* 155 */
-			0x91,		/* 145 */
-/* 50 */	0xc3,		/* 195 */
-			0x77,		/* 119 */
-/* 52 */	0x40,		/* 64 */
-			0xf,		/* 15 */
-/* 54 */	0xc3,		/* 195 */
-			0xe3,		/* 227 */
+/* 40 */	NdrFcLong( 0x2a3ca15f ),	/* 708616543 */
+/* 44 */	NdrFcShort( 0xe395 ),	/* -7275 */
+/* 46 */	NdrFcShort( 0x43f8 ),	/* 17400 */
+/* 48 */	0x8e,		/* 142 */
+			0xe6,		/* 230 */
+/* 50 */	0xeb,		/* 235 */
+			0x93,		/* 147 */
+/* 52 */	0xd7,		/* 215 */
+			0xed,		/* 237 */
+/* 54 */	0xaf,		/* 175 */
+			0xae,		/* 174 */
 
 			0x0
         }
@@ -392,7 +392,7 @@ static const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 
 
 /* Object interface: IRdpDesktopSessionEventHandler, ver. 0.0,
-   GUID={0xb59b96da,0x83cb,0x40ee,{0x9b,0x91,0xc3,0x77,0x40,0x0f,0xc3,0xe3}} */
+   GUID={0x2a3ca15f,0xe395,0x43f8,{0x8e,0xe6,0xeb,0x93,0xd7,0xed,0xaf,0xae}} */
 
 #pragma code_seg(".orpc")
 static const unsigned short IRdpDesktopSessionEventHandler_FormatStringOffsetTable[] =
@@ -444,7 +444,7 @@ const CInterfaceStubVtbl _IRdpDesktopSessionEventHandlerStubVtbl =
 
 
 /* Object interface: IRdpDesktopSession, ver. 0.0,
-   GUID={0x6a7699f0,0xee43,0x43e7,{0xaa,0x30,0xa6,0x73,0x8f,0x9b,0xd4,0x70}} */
+   GUID={0x632a64d6,0xfc05,0x4505,{0x86,0xd2,0x38,0x72,0x96,0xa5,0xf6,0xf9}} */
 
 #pragma code_seg(".orpc")
 static const unsigned short IRdpDesktopSession_FormatStringOffsetTable[] =
