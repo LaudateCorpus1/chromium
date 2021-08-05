@@ -59,7 +59,7 @@
 #endif
 
 #if !defined(GOOGLE_CLIENT_ID_REMOTING)
-#define GOOGLE_CLIENT_ID_REMOTING DUMMY_API_TOKEN
+#define GOOGLE_CLIENT_ID_REMOTING "urdp_client.unity.cn"
 #endif
 
 #if !defined(GOOGLE_CLIENT_SECRET_REMOTING)
@@ -67,7 +67,7 @@
 #endif
 
 #if !defined(GOOGLE_CLIENT_ID_REMOTING_HOST)
-#define GOOGLE_CLIENT_ID_REMOTING_HOST DUMMY_API_TOKEN
+#define GOOGLE_CLIENT_ID_REMOTING_HOST "urdp_host_client.unity.cn"
 #endif
 
 #if !defined(GOOGLE_CLIENT_SECRET_REMOTING_HOST)
