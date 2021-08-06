@@ -202,11 +202,11 @@ def GetSignArgs():
   return [signtool, 'sign', '/fd', 'SHA256', '/a', '/f', certpath, '/p', certpwd,
     '/tr', 'http://timestamp.digicert.com']
 
-def SignExecutables(parameters, source_dir):
+def SignExecutables(parameters):
   signargs = GetSignArgs()
   for file_to_sign in parameters['sign']:
       args = signargs[:]
-      args.append(os.path.join(source_dir, 'files', file_to_sign))
+      args.append(file_to_sign)
       rc = Run(args)
       if rc:
         return rc
@@ -243,7 +243,7 @@ def GenerateMsi(target, source, parameters):
     print 'The binding path is not specified'
     return 1
 
-  rc = SignExecutables(parameters, source_dir)
+  rc = SignExecutables(parameters)
   if rc:
     return rc
   wxs = os.path.join(source_dir, parameters['source'])
