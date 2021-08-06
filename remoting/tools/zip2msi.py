@@ -189,6 +189,28 @@ def Run(args):
     print '%s returned %d' % (args[0], popen.returncode)
   return popen.returncode
 
+def GetSignArgs():
+  signtool = os.getenv('REMOTING_SIGN_TOOLPATH', '')
+  certpath = os.getenv('REMOTING_SIGN_CERTPATH', '')
+  certpwd = os.getenv('REMOTING_SIGN_CERTPWD', '')
+  if signtool == '':
+    raise 'REMOTING_SIGNTOOL_PATH environment varaible must set to the path of signtool.exe'
+  if certpath == '':
+    raise 'REMOTING_SIGN_CERTPATH must set to path of signing cert'
+  if certpwd == '':
+    raise 'REMOTING_SIGN_CERTPWD must set to password of the signing cert'
+  return [signtool, 'sign', '/fd', 'SHA256', '/a', '/f', certpath, '/p', certpwd,
+    '/tr', 'http://timestamp.digicert.com']
+
+def SignExecutables(parameters, source_dir):
+  signargs = GetSignArgs()
+  for file_to_sign in parameters['sign']:
+      args = signargs[:]
+      args.append(os.path.join(source_dir, 'files', file_to_sign))
+      rc = Run(args)
+      if rc:
+        return rc
+  return 0
 
 def GenerateMsi(target, source, parameters):
   """Generates .msi from the installation files prepared by Chromium build."""
@@ -221,6 +243,9 @@ def GenerateMsi(target, source, parameters):
     print 'The binding path is not specified'
     return 1
 
+  rc = SignExecutables(parameters, source_dir)
+  if rc:
+    return rc
   wxs = os.path.join(source_dir, parameters['source'])
 
   #  Add the binding path to the light-specific parameters.
@@ -252,6 +277,14 @@ def GenerateMsi(target, source, parameters):
   if rc:
     return rc
 
+  args = GetSignArgs()
+  args.append('/d')
+  args.append('Unity Chromoting')
+  args.append(target)
+  rc = Run(args)
+  if rc:
+    return rc
+
   return 0
 
 
@@ -269,4 +302,3 @@ def main():
 
 if __name__ == '__main__':
   sys.exit(main())
-

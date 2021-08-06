@@ -12,11 +12,11 @@
 // Debug builds should default to the autopush environment (can be configured
 // via cmd line switch).  Release builds will point to the prod environment.
 #if defined(NDEBUG)
-constexpr char kFtlServerEndpoint[] = "urdp.unity.local:8080";
-constexpr char kRemotingServerEndpoint[] = "urdp.unity.local:8080";
-#else
 constexpr char kFtlServerEndpoint[] = "urdp.unity.cn";
 constexpr char kRemotingServerEndpoint[] = "urdp.unity.cn";
+#else
+constexpr char kFtlServerEndpoint[] = "urdp.unity.local:8080";
+constexpr char kRemotingServerEndpoint[] = "urdp.unity.local:8080";
 #endif
 
 // Command line switches.

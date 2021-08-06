@@ -26,9 +26,9 @@ namespace {
 const char kDefaultGoogleUrl[] = "http://google.com";
 const char kDefaultGaiaUrl[] = "https://accounts.google.com";
 #if defined(NDEBUG)
-const char kDefaultGoogleApisBaseUrl[] = "http://urdp.unity.local:8080";
-#else
 const char kDefaultGoogleApisBaseUrl[] = "https://urdp.unity.cn";
+#else
+const char kDefaultGoogleApisBaseUrl[] = "http://urdp.unity.local:8080";
 #endif
 
 const char kDefaultOAuthAccountManagerBaseUrl[] =
