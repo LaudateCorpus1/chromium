@@ -41,7 +41,7 @@ std::unique_ptr<HostEventLogger> HostEventFileLogger::Create() {
   base::Time::Exploded exploded;
   base::Time::Now().LocalExplode(&exploded);
   base::FilePath log_file_path = directory.Append(base::StringPrintf(
-      L"chrome_remote_desktop_%4d%02d%02d_%02d%02d%02d_%03d.log", exploded.year,
+      L"unity_remote_desktop_%4d%02d%02d_%02d%02d%02d_%03d.log", exploded.year,
       exploded.month, exploded.day_of_month, exploded.hour, exploded.minute,
       exploded.second, exploded.millisecond));
 

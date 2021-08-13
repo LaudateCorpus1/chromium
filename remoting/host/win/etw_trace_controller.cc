@@ -15,7 +15,7 @@ namespace remoting {
 
 namespace {
 
-constexpr wchar_t kSessionName[] = L"chrome_remote_desktop_host_logger";
+constexpr wchar_t kSessionName[] = L"unity_remote_desktop_host_logger";
 constexpr uint8_t kDefaultTracingLevel = 4;
 constexpr uint32_t kDefaultTracingFlags = 0;
 constexpr size_t kDefaultBufferSizeKb = 16;

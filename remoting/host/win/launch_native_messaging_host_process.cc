@@ -27,7 +27,7 @@ namespace {
 // Windows will use default buffer size when 0 is passed to CreateNamedPipeW().
 const uint32_t kBufferSize = 0;
 const int kTimeOutMilliseconds = 2000;
-const char kChromePipeNamePrefix[] = "\\\\.\\pipe\\chrome_remote_desktop.";
+const char kChromePipeNamePrefix[] = "\\\\.\\pipe\\unity_remote_desktop.";
 
 uint32_t CreateNamedPipe(const std::string& pipe_name,
                          const remoting::ScopedSd& security_descriptor,
