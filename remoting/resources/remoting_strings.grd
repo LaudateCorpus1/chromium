@@ -359,7 +359,7 @@
           Copyright 2021 The Chromium Authors. All Rights Reserved.
         </message>
         <message name="IDS_DISPLAY_SERVICE_NAME" desc="The name of the Windows service installed by Chromoting.">
-          Unity Chromoting Service
+          Unity Remoting Service
         </message>
         <message name="IDS_SERVICE_DESCRIPTION" desc="The description of the Windows service installed by Chromoting.">
           This service enables incoming connections from Chromoting clients.

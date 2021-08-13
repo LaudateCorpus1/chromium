@@ -137,7 +137,7 @@ python2_action("remoting_me2me_host_archive") {
   action("remoting_host_installation") {
     deps = [ "//remoting/host:remoting_me2me_host_archive" ]
     script = "//remoting/tools/zip2msi.py"
-    outputs = [ "$root_out_dir/chromoting.msi" ]
+    outputs = [ "$root_out_dir/unity_remoting.msi" ]
     args = [
       "--wix_path",
       rebase_path("//third_party/wix", root_build_dir),

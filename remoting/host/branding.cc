@@ -21,7 +21,7 @@ const base::FilePath::CharType kConfigDir[] =
     FILE_PATH_LITERAL("Google\\Chrome Remote Desktop");
 #else
 const base::FilePath::CharType kConfigDir[] =
-    FILE_PATH_LITERAL("UnityChromoting");
+    FILE_PATH_LITERAL("UnityRemoting");
 #endif
 #elif defined(OS_APPLE)
 const base::FilePath::CharType kConfigDir[] =
@@ -36,7 +36,7 @@ const base::FilePath::CharType kConfigDir[] =
 namespace remoting {
 
 #if defined(OS_WIN)
-const wchar_t kWindowsServiceName[] = L"unity_chromoting";
+const wchar_t kWindowsServiceName[] = L"unity_remoting";
 #endif
 
 base::FilePath GetConfigDir() {
