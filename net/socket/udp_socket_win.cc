@@ -263,6 +263,15 @@ UDPSocketWin::UDPSocketWin(DatagramSocket::BindType bind_type,
   net_log_.BeginEventReferencingSource(NetLogEventType::SOCKET_ALIVE, source);
 }
 
+// Winsock ioctl code which will disable ICMP errors from being propagated to a UDP socket.
+// This can occur if a UDP packet is sent to a valid destination but there is no socket
+// registered to listen on the given port.
+// http://msdn.microsoft.com/en-us/library/cc242275.aspx
+// http://msdn.microsoft.com/en-us/library/bb736550(VS.85).aspx
+// 0x9800000C == 2550136844 (uint) == -1744830452 (int) == 0x9800000C
+
+const int SIO_UDP_CONNRESET = -1744830452;
+
 UDPSocketWin::~UDPSocketWin() {
   DCHECK_CALLED_ON_VALID_THREAD(thread_checker_);
   Close();
@@ -287,6 +296,17 @@ int UDPSocketWin::Open(AddressFamily address_family) {
     read_write_event_.Set(WSACreateEvent());
     WSAEventSelect(socket_, read_write_event_.Get(), FD_READ | FD_WRITE);
   }
+
+  BOOL bEnalbeConnRestError = FALSE;
+  DWORD dwBytesReturned = 0;
+  int rv = WSAIoctl(socket_, SIO_UDP_CONNRESET, &bEnalbeConnRestError, sizeof(bEnalbeConnRestError), \
+         NULL, 0, &dwBytesReturned, NULL, NULL);
+  if (rv) {
+    int os_error = WSAGetLastError();
+    LOG(ERROR) << "WSAIoctl set fail:"
+              << " [error: " << os_error << "].";
+  }
+
 
   owned_socket_count_ = std::move(owned_socket_count);
   return OK;
@@ -744,13 +764,20 @@ void UDPSocketWin::WatchForReadWrite() {
 void UDPSocketWin::LogRead(int result,
                            const char* bytes,
                            const IPEndPoint* address) const {
+
   if (result < 0) {
+    std::string addr;
+    if (address) {
+      addr = address->ToString();
+    }
+    LOG(ERROR) << "UDPSocketWin read failed, " << result << ", addr=" << addr;
     net_log_.AddEventWithNetErrorCode(NetLogEventType::UDP_RECEIVE_ERROR,
                                       result);
     return;
   }
 
   if (net_log_.IsCapturing()) {
+
     NetLogUDPDataTransfer(net_log_, NetLogEventType::UDP_BYTES_RECEIVED, result,
                           bytes, address);
   }
@@ -813,6 +840,11 @@ int UDPSocketWin::InternalRecvFromOverlapped(IOBuffer* buf,
   } else {
     int os_error = WSAGetLastError();
     if (os_error != WSA_IO_PENDING) {
+       std::string addr;
+      if (address) {
+          addr = address->ToString();
+      }
+      LOG(ERROR) << "InternalRecvFromOverlapped Read Error " << os_error << ", addr=" << addr;
       int result = MapSystemError(os_error);
       LogRead(result, nullptr, nullptr);
       return result;
@@ -888,6 +920,12 @@ int UDPSocketWin::InternalRecvFromNonBlocking(IOBuffer* buf,
       WatchForReadWrite();
       return ERR_IO_PENDING;
     }
+
+    std::string addr;
+    if (address) {
+      addr = address->ToString();
+    }
+    LOG(ERROR) << "InternalRecvFromOverlapped Read Error " << os_error << ", addr=" << addr;
     rv = MapSystemError(os_error);
     LogRead(rv, nullptr, nullptr);
     return rv;
