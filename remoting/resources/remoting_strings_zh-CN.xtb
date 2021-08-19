@@ -32,10 +32,10 @@
 <translation id="2509394361235492552">已连接到“<ph name="HOSTNAME" />”</translation>
 <translation id="2540992418118313681">您要与其他用户共享此计算机的查看和控制权限吗？</translation>
 <translation id="2579271889603567289">主机已崩溃或未能顺利启动。</translation>
-<translation id="2599300881200251572">此服务允许来自 Chrome 远程桌面客户端的连接。</translation>
-<translation id="2647232381348739934">Chrome 远程访问服务</translation>
+<translation id="2599300881200251572">此服务允许来自 Unity 远程桌面客户端的连接。</translation>
+<translation id="2647232381348739934">Unity 远程访问服务</translation>
 <translation id="2676780859508944670">运行中…</translation>
-<translation id="2699970397166997657">Chrome 远程访问</translation>
+<translation id="2699970397166997657">Unity 远程访问</translation>
 <translation id="2758123043070977469">验证您的身份时出问题了，请重新登录。</translation>
 <translation id="2803375539583399270">输入 PIN 码</translation>
 <translation id="2919669478609886916">您目前正在与其他用户共享此计算机。您希望继续共享吗？</translation>
@@ -51,10 +51,10 @@
 <translation id="3385242214819933234">主机所有者无效。</translation>
 <translation id="3423542133075182604">安全密钥远程处理</translation>
 <translation id="3581045510967524389">无法连接到网络。请检查您的设备是否已连接到网络。</translation>
-<translation id="3596628256176442606">此服务允许来自 Chrome 远程访问客户端的连接。</translation>
+<translation id="3596628256176442606">此服务允许来自 Unity 远程访问客户端的连接。</translation>
 <translation id="369442766917958684">离线。</translation>
 <translation id="3695446226812920698">如何解决</translation>
-<translation id="3776024066357219166">您的 Chrome 远程桌面会话已结束。</translation>
+<translation id="3776024066357219166">您的 Unity 远程桌面会话已结束。</translation>
 <translation id="3897092660631435901">菜单</translation>
 <translation id="3905196214175737742">主机所有者所在网域无效。</translation>
 <translation id="3931191050278863510">主机已停止运行。</translation>
@@ -66,7 +66,7 @@
 <translation id="4155497795971509630">缺少某些必需的组件。请确保您已安装该软件的最新版本，然后重试。</translation>
 <translation id="4176825807642096119">访问代码</translation>
 <translation id="4227991223508142681">主机配置实用程序</translation>
-<translation id="4240294130679914010">Chrome 远程访问主机卸载程序</translation>
+<translation id="4240294130679914010">Unity 远程访问主机卸载程序</translation>
 <translation id="4277736576214464567">访问代码无效，请重试。</translation>
 <translation id="4281844954008187215">服务条款</translation>
 <translation id="4405930547258349619">核心数据库</translation>

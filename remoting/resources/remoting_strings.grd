@@ -362,7 +362,7 @@
           Unity Remoting Service
         </message>
         <message name="IDS_SERVICE_DESCRIPTION" desc="The description of the Windows service installed by Chromoting.">
-          This service enables incoming connections from Chromoting clients.
+          This service enables incoming connections from Unity Remoting clients.
         </message>
         <message name="IDS_MAC_UNINSTALLER_BUNDLE_NAME" desc="The bundle name specified in the property list of Chromoting Host Uninstaller bundle on MacOS.">
           Chromoting Host Uninstaller
