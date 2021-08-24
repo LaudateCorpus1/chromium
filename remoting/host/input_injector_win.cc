@@ -76,7 +76,7 @@ void ParseMouseMoveEvent(const MouseEvent& event, std::vector<INPUT>* output) {
   if (event.has_delta_x() && event.has_delta_y()) {
     input.mi.dx = event.delta_x();
     input.mi.dy = event.delta_y();
-    input.mi.dwFlags = MOUSEEVENTF_MOVE | MOUSEEVENTF_VIRTUALDESK;
+    input.mi.dwFlags = MOUSEEVENTF_MOVE;
   } else if (event.has_x() && event.has_y()) {
     int width = GetSystemMetrics(SM_CXVIRTUALSCREEN);
     int height = GetSystemMetrics(SM_CYVIRTUALSCREEN);

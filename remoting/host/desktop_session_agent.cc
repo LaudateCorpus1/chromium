@@ -669,8 +669,8 @@ void DesktopSessionAgent::OnInjectMouseEvent(
   }
 
   if (video_capturer_)
-    video_capturer_->SetComposeEnabled(event.has_delta_x() ||
-                                       event.has_delta_y());
+    video_capturer_->SetComposeEnabled((event.has_delta_x() ||
+                                       event.has_delta_y()) && false);
 
   // InputStub implementations must verify events themselves, so we don't need
   // verification here. This matches HostEventDispatcher.
